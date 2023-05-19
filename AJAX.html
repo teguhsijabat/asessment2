@@ -1,0 +1,34 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+</head>
+<body>
+    <table id="teamTable" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Team Name</th>
+                <th>Location</th>
+                <th>Abbreviation</th>
+            </tr>
+        </thead>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#teamTable').DataTable({
+                "ajax": {
+                    "url": "https://statsapi.web.nhl.com/api/v1/teams",
+                    "dataSrc": "teams"
+                },
+                "columns": [
+                    { "data": "name" },
+                    { "data": "locationName" },
+                    { "data": "abbreviation" }
+                ]
+            });
+        });
+    </script>
+</body>
+</html>
